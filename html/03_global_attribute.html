@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 draggable="true">움직일 수 있는 태그</h1>
+    <p lang="ko">
+      메인언어 표시(ko는 대한민국) : 검색엔진에게 사이트의 언어가 무엇인지
+      알려줌(lang이 os의 언어가 다르면 크롬에서는 번역기능을 지원해줌,
+      lang=ko이면 번역이 안뜸), 중요
+    </p>
+    <p hidden>이 문장은 화면에 보이지 않습니다.</p>
+    <a
+      href="#!"
+      id="해당 페이지 내의 유일한 속성값, 중복불가, js에서도 중요한 역할을 함."
+      >구글</a
+    >
+    <br /><!-- 줄바꿈 -->
+    <label for="userId">사용자 아이디</label
+    ><!-- 특정한 것을 지칭 for - label에서만 사용가능한 로컬속성 스크린 리더기 검색 최적화의 조건 중 하나. label의 for와 input id를 동일하게 입력하면 스크린 리더기가 올바르게 읽어줌? 없으면 연관이 없는 것 처럼 읽음 -->
+    <input type="text" name="" id="userId" />
+    <br />
+    <p spellcheck="true" contenteditable="true">this is a paraggraph</p>
+    <!-- 영어만 해당 spellcheck - 스펠링 체크 해줌 / contenteditable -  수정가능 -->
+    <p style="color: red; background-color: yellow">빨간색 글자입니다.</p>
+    <!-- style css 속성값 -->
+    <a href="" tabindex="1">개발자의 품격</a>
+    <a href="" tabindex="2" title="구글사이트로 이동합니다.">구글</a>
+    <a href="" tabindex="3">네이버</a>
+    <!-- tabindex tab을 누리면 위에서부터 순서대로 내려가는데 이를 적용하면 무시하고 여기에 지정한 순서대로 내려옴 -->
+    <button
+      title="주문 버튼을 클릭하면 선택한 제품에 대한 주문을 진행합니다."
+    ></button>
+    <!-- title title가 있는 태그에 대한 도움말을 삽입가능, 설명을 넣어 스크린 리더기나 사용자가 이용하는데 도움을 받을 수 있음 -->
+  </body>
+</html>
