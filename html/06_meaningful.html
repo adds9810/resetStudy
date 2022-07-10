@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 몰라서 안쓰는 것도 있지만 알아도 습관이 안 되어 있으면 사용하기 어려움 습관화하자. -->
+    <p style="font-weight: bold">style="font-weight: bold" 를 사용했을 때</p>
+    <!-- style은 검색엔진이 읽지 않음 -->
+    <p><b>b태그</b>를 사용 했을 때</p>
+    <!--b는 검색엔진이 읽음 그러나 b보단 strong를 권장-->
+    <p><strong>strong태그</strong>를 사용 했을 때</p>
+    <!-- 검색엔진과 스크린 리더기가 강조하는 부분으로 인식 -->
+    <p style="font-style: italic">font-style: italic를 사용한 이탤릭체</p>
+    <i>i태그를 사용한 이탤릭체</i
+    ><!-- style="font-style: italic"와 같이 의미는 없으나 이탤릭체를 사용했다는 것은 인식할 수 있음 -->
+    <p><em>em태그를 사용한 이탤릭체</em></p>
+    <!-- 강조하는 부분으로 인식 -->
+    <p>텍스트가 <small>작게</small> 보입니다.</p>
+    <!-- 주변에 지정한 글씨보다 작아보임 -->
+    <p>집에 오는 길에 <mark>우유</mark>사는 것을 잊지마라</p>
+    <!-- 중요한 부분으로 인식/디자인으로 하지말자 -->
+    <p>제품 할인 중! <del>3만원</del> 2만 8천원</p>
+    <!--취소선-->
+    <p>
+      제품 할인 중! <span style="text-decoration: line-through">3만원</span> 2만
+      8천원
+    </p>
+    <!-- 디자인은 표현할 수 있지만 의미는 주지 못 한다. -->
+    <p>내가 좋아하는 색상은 <ins>노란색</ins> 입니다.</p>
+    <p>
+      내가 좋아하는 색상은
+      <span style="text-decoration: underline">노란색</span> 입니다.
+    </p>
+    <!-- 밑줄 -->
+    <p style="text-decoration: underline">노란색</p>
+    <p>X<sub>2</sub></p>
+    <!-- 아래첨자 -->
+    <p>X<sup>2</sup></p>
+    <!-- 위첨자 -->
+    <blockquote
+      city="https://news.sbs.co.kr/news/endPage.do?news_id=N1006689784"
+    >
+      "대한민국 국회는 인간의 과도한 화석연료 사용과 온실가스 배출증가에 따른
+      기후변화로 가뭄, 홍수, 폭염, 한파, 태풍, 대형 산불 등 기후재난이 증가하고
+      불균등한 피해가 발생하는 현재의 상황을 '기후위기'로 엄중히 인식하고,
+      기후위기의 적극적 해결을 위하여 현 상황이 '기후위기 비상상황'임을
+      선언한다." (결의안 1항 중)
+    </blockquote>
+    <q> 삶이 있는 한 희망은 있다 -키케로</q>
+    <abbr title="World Health Organization(약자의 풀네임)">who(약자)</abbr>
+    <address>
+      서울특별시 강남구 도산대로<br />
+      <a href="mailto:1234@abc.com">1234@abc.com</a><br />
+      <a href="tel:00000000000">(000) 0000-0000</a>
+    </address>
+    <p><cite>절규</cite>는 1893년에 그려진 그림이다.</p>
+    <p><cite>개발자의 품격</cite>은 유튜브 채널이다.</p>
+    <!-- cite : 제품, 그림등의 제목 혹은 명칭 -->
+
+    <!--
+        * 의미없는 태그 - div, span
+        - 다른 태그를 담는 공간, 컨테이너
+        - 화면의 컨텐츠를 배치하기 위한 레이아웃
+        * block 요소 - 컨텐츠의 크기에 상관없이 한출 전체를 차지(div, h1~h6 ...)
+        * inline 요소 - 갖고있는 컨텐츠의 크기 만큼만 차지함(span ...)
+    -->
+    <div style="background-color: blue">파란색 배경</div>
+    <span style="background-color: green">초록색 배경</span>
+  </body>
+</html>

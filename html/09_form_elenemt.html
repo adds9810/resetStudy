@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- form 요소 -->
+    <!-- 사용자로 부터 데이터(정보)를 입력 받기 위한 HTML 요소들 -->
+    <!-- <form action="/server/login"> 정보를 받기 위한 태그들의 묶음
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" id="email" /> 
+        input의 type에 따라 정보를 받는 인풋의 모양이 달라짐
+      </div>
+      <div>
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw" /> 비밀번호는 비공개로 입력됨
+      </div>
+      <div>
+        <button>로그인</button> action의 경로로 누르면 서버로 form에 있는 정보들을 한 번에 전송함
+      </div>
+    </form> -->
+    <h4>당신이 배우고 싶은 언어는?(다중 선택 가능)</h4>
+    <!-- 
+        input type="checkbox" : 다중 선택
+        id : label과 한쌍으로 움직임, 동일한 이름으로 입력해야 힘께 있으면 스크린리더기가 연관있는 폼으로 설명해줌, 라벨을 클릭해도 체크박스가 표시되기 때문에 사용자에게 편의를 제공할 수 있음
+        name : 이름, 입력하면 하나의 이름의 다중 선택지라는 걸 인식시켜줄 수 있음, (js으로 확인가능)
+    -->
+    <div>
+      <input type="checkbox" name="chk_lang" id="chk_html" />
+      <label for="chk_html">HTML</label>
+      <input type="checkbox" name="chk_lang" id="chk_css" />
+      <label for="chk_css">CSS</label>
+      <input type="checkbox" name="chk_lang" id="chk_js" />
+      <label for="chk_js">JavaScript</label>
+    </div>
+    <h4>당신이 배우고 싶은 언어는?(하나만 선택 가능)</h4>
+    <!-- 
+        input type="radio" : 단일선택
+        id : input type="checkbox" 와 동일
+        name : 하나의 질문에 대한 선택지로 인식시켜 하나만 선택할 수 있게 해줌
+    -->
+    <div>
+      <input type="radio" name="rdo_lang" id="rdo_html" />
+      <label for="rdo_html">HTML</label>
+      <input type="radio" name="rdo_lang" id="rdo_css" />
+      <label for="rdo_css">CSS</label>
+      <input type="radio" name="rdo_lang" id="rdo_js" />
+      <label for="rdo_js">JavaScript</label>
+    </div>
+    <div>
+      <label for="favoriteColor">가장 좋아하는 색상은?</label>
+      <input type="color" id="favoriteColor" value="" />
+      <!-- 
+        type="color" : 색상값이 입력됨, 헥사? 값으로 입력됨
+        value = 해달 폼에 입력 혹은 선택한 값
+       -->
+    </div>
+    <div>
+      <label for="bornDate">태어난 날짜는?</label>
+      <input type="date" id="bornDate" />
+      <!-- input type="date" : 날짜 -->
+    </div>
+    <div>
+      <label for="arrivalDateTime">입국한 날짜/시간은?</label>
+      <input type="datetime-local" id="arrivalDateTime" />
+      <!-- type="datetime-local 날짜+시간 -->
+    </div>
+    <div>
+      <form action="">
+        <label for="userEmail">이메일 주소는?</label>
+        <input type="email" name="" id="userEmail" />
+        <button type="submit">저장</button>
+        <!-- 
+            id : 폼안의 id는 중복되면 안됨
+
+            input type="email"
+            form 안에 있으면 올바른 이메일 형식 자동체크를 해줌
+        -->
+        <!--
+            <form> 태그를 사용하면 type에 따라 자동 체그해줌, 새로운 ui수정 적용 불가.
+            <form>태그를 사용하면 js로 체크해야함. ui 디자인해 적용가능(vue 등의 프레임 워크가 현재 이 방식으로 사용 중)
+        -->
+      </form>
+    </div>
+    <div>
+      <label for="attachment">파일 첨부</label>
+      <input type="file" id="attachment" />
+      <!-- type="file" : 파일첨부 -->
+    </div>
+    <div>
+      <!-- 사용자의 입력을 받기 위한 용도가 아님 -->
+      <!-- 대부분 개발자가 사용하기 위해서 쓰는 태그임 -->
+      <input type="hidden" name="email" value="john@gmail.com" />
+    </div>
+    <div>
+      <img src="./img/devlogo.jpeg" alt="" style="width: 100px; height: auto" />
+      <input
+        type="image"
+        src="../html/img/pangsoo.gif"
+        style="width: 100px; height: auto"
+      />
+      <!-- type="image" : 이미지, 버튼영억으로 사용하나 거이 사용하지 않음 -->
+    </div>
+    <div>
+      <label for="yearmonth">생년/년월</label>
+      <input type="month" id="yearmonth" />
+      <!-- input type="month" : 년 월 선택가능 -->
+    </div>
+    <div>
+      <label for="">당신의 나이는?</label>
+      <input type="number" min="0" max="100" />
+      <!-- input type="number" : 숫자 증감, 입력가능 min max로 입력가능한 숫자의 최소, 최대값 설정가능(없으면 -까지 입력됨..) -->
+    </div>
+    <div>
+      <label for="userPass">비밀번호</label>
+      <input type="password" id="userPass" />
+    </div>
+    <div>
+      <form action="">
+        <label for="phone">전화번호</label>
+        <input type="tel" id="phone" value="" pattern="^010-\d{4}-\d{4}$" />
+        <button type="submit">저장</button>
+        <!-- 
+            input type="tel" 전화번호, 
+            문자입력도 가능하므로 patten 속성(form 태그 안에 있을 경우)이나 js사용해 체크가능 
+        -->
+      </form>
+    </div>
+    <div>
+      <label for="general">일반문자</label>
+      <input type="text" id="general" />
+      <!-- input type="text" 어떤 문자던 받을 수 있음. 많이 사용 -->
+    </div>
+    <div>
+      <label for="visitTime">예약시간</label>
+      <input type="time" id="visitTime" />
+      <!-- input type="time" 시간 선택 -->
+    </div>
+    <div>
+      <form action="">
+        <label for="">블로그 주소는?</label>
+        <input type="url" />
+        <!-- input type="url" url 입력, form 태그 안에 있으면 자동체크 됨 -->
+        <button type="submit">저장</button>
+      </form>
+    </div>
+    <div>
+      <label for="weekPlan">주간 계획(몇 주차)</label>
+      <input type="week" id="weekPlan" />
+      <!-- input type="week" 주차 -->
+    </div>
+    <div>
+      <label for="searchKeyword">검색조건</label>
+      <input type="search" id="searchKeyword" />
+      <!-- 
+        input type="search" : 겸색조건
+        입력시 삭제 가능한 버튼이 노출되고 누르면 삭제됨
+       -->
+    </div>
+    <!-- 
+        input type 적절히 사용해야 하는 이유
+        pc는 상관없지만 모바일에서는 input type에 따라 최적화된 적절한 자판으로 변경됨 
+    -->
+  </body>
+</html>

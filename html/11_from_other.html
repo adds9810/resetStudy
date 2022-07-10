@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- * input을 사용하지 않고 사용자의 정보를 받을 수 있는 form태그가 있음 -->
+    <!-- 
+        * select - 여러 옵션 중에 단일 혹은 다중선택가능
+         - option과 함께 사용. 고유값 value를 가지고 있어야 한다.
+         - option이 많을 때 사용하면 좋음
+     -->
+    <label for="">살고 있는 지역은?</label>
+    <select name="" id="">
+      <option value="02">서울</option>
+      <option value="051">부산</option>
+      <option value="064">제주</option>
+    </select>
+    <br />
+    <!-- multiple로 다중선택 가능.(그러나 사용자가 부가 설명이 없으면 알기 어려워, 권장하지 않음) -->
+    <select name="" id="" multiple>
+      <option value="02">서울</option>
+      <option value="051">부산</option>
+      <option value="064">제주</option>
+    </select>
+    <br />
+    <!-- option이 적을 때는 사용자의 입장을 고려하여 radio 중 선택해 사용  -->
+    <select name="" id="">
+      <option value="male">남자</option>
+      <option value="female">여자</option>
+    </select>
+    <div>
+      <input type="radio" name="rdo_gender" id="male" />
+      <label for="male">남자</label>
+      <input type="radio" name="rdo_gender" id="female" />
+      <label for="female">여자</label>
+    </div>
+    <div>
+      <!-- 
+            textarea : 여러줄의 데이터를 입력할 때
+            col : 글자수(영어만 가능)
+            rows : 행간 제한
+
+        -->
+      <textarea name="" id="" style="width: 100%" rows="10"></textarea>
+    </div>
+    <div>
+      <!-- 
+            fieldset : 서로 다른, 구분된 정보입력 그룹이 필요할 때 사용
+            legend : 정보그룹의 제목
+         -->
+      <fieldset>
+        <legend>기본정보</legend>
+        <div>
+          <label for="name">이름</label>
+          <input type="text" name="" id="name" />
+        </div>
+        <div>
+          <label for="tel">연락처</label>
+          <input type="tel" name="" id="tel" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>학력정보</legend>
+        <div>
+          <label for="university">대학교</label>
+          <input type="text" name="" id="university" />
+        </div>
+        <div>
+          <label for="year">졸업년도</label>
+          <input type="text" name="" id="year" />
+        </div>
+      </fieldset>
+    </div>
+    <div>
+      <!-- 
+            datalist : 입력값을 받을 수 있고, select기능이 있음. 사용자에게 편의를 제공하는 기능 중 하나. ex. 제품구매 목록 등에 사용할 수 있음. 똑같은거 여러번 사용할때 유용
+            - select처럼 option을 추가하고 type가 없는 input에 list를 datalist의 id로 입력하면 datalist을 여러번 사용할 수 있음
+            - option 값을 선택했어도 수정하거나 지울 수 있음. js로 데이터 전송 전에 일치하는 option값이 있는지 점검하는 코드를 추가해야 함
+        -->
+      <input list="browsers" id="browser1" />
+      <datalist id="browsers">
+        <option value="Internet Explorer">Internet Explorer</option>
+        <option value="Firefox">Firefox</option>
+        <option value="Chrome">Chrome</option>
+        <option value="Opera">Opera</option>
+        <option value="Safari">Safari</option>
+      </datalist>
+    </div>
+    <div>
+      <input list="browsers" id="browser2" />
+    </div>
+  </body>
+</html>
