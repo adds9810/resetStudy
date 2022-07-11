@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        iframe 
+        - html 페이지 내에 다른 html을 삽입할 때 사용하는 기술
+        - 다른 html페이지를 불러올 수 있음.
+        - 과거에는 중복된 페이지를 줄이는 효과를 볼 수 있었으나 서버통신으로 불어오는 데이터에 따라 흰화면이 보이면서 오류같은 느낌을 줄 수 있는 단점이 있음,현재 개발에는 적합하지 않음(프레임워크에는 잘 사용하지 않음..)
+        - iframe에서 사용할 수 있는 값
+          - _parent : iframe안에 a태그가 있을 경우, 열리지 않음, 이설정을 사용하면 a태그 안에 지정한 링크로 이동가능
+          <a href="http://www.naver.com" target="_parent">네이버</a>
+          - _top : 많은 iframe 중에 마지막에 있어도 우선으로 올릴 수 있음
+          <a href="http://www.naver.com" target="_top">네이버</a>
+        - form과 연동해서 정보를 받고 하는게 가능하지만 현재로는 사용하지 않음....
+        
+        * js기능을 추가해서 iframe의 url을 변경해 페이지 이동을 할 수 있음
+     -->
+    <div>
+      <a href="javascript:goToMenu('./13_iframe_content1.html');">menu1</a>
+      <a href="javascript:goToMenu('./13_iframe_content2.html');">menu2</a>
+      <a href="">menu3</a>
+      <a href="">menu4</a>
+      <a href="">menu5</a>
+    </div>
+    <div>
+      <iframe
+        src="./13_iframe_content1.html"
+        id="ifrm"
+        frameborder="0"
+      ></iframe>
+    </div>
+    <div>footer</div>
+    <script>
+      function goToMenu(path) {
+        document.getElementById('ifrm').src = path;
+      }
+    </script>
+  </body>
+</html>
