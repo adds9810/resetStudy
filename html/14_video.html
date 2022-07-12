@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+        * video : video를 불러올 수 있는 태그
+        - width, height속성 사용가능
+        - controls : 비디오와 관련된 재생, 멈춤, 음성 등 조정을 위한 ui가 제공됨
+        - autoplay : 자동재생
+        - muted : 음소거
+        - loop : 빈복재생
+        - poster : 영상 실행 전 보이는 썸네일 이미지
+    -->
+    <video
+      src="./medio/video.mp4"
+      poster="./medio/onboarding1.png"
+      width="320"
+      controls
+      autoplay
+      muted
+      loop
+      poster
+    ></video>
+    <br />
+    <video
+      src="./medio/video.mp4"
+      poster="./medio/onboarding1.png"
+      width="320"
+      controls
+    >
+      <!-- 
+        track : 자막파일 삽입 태그
+        srclang : 언어코드
+        label : 컨트롤러에 자막 보여질 이름
+    -->
+      <track
+        src="./medio/bootcamp.en.vtt"
+        kind="subtitles"
+        srclang="en"
+        label="영어"
+      />
+      <track
+        src="./medio/bootcamp.ko.vtt"
+        kind="subtitles"
+        srclang="ko"
+        label="한국어"
+      />
+    </video>
+  </body>
+</html>

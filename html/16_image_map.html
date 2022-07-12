@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        https://www.image-map.net/ 이미지맵에 사용할 포인터 위치 찍어줌 사이트 - 들어가서 연습해보자. 
+        
+        * image map
+         - 이미지 안에 여러 정보와 링크를 담을 때 사용
+         - img usemap과 map name은 동일해야함
+         - area에 map에 추가할 정보를 담을 수 있음
+         - shape : 포인터 모양 종류, 써클(원), 쉐이퍼(사각형), 폴리곤(자유롭게 모양 만들기 가능)
+         - coords : 위치정보의 약자(x,y,반지름)
+         - href : 이동경로
+    -->
+    <img src="./img/ikea.png" usemap="#image-map" />
+    <map name="image-map">
+      <area
+        target="_blank"
+        alt=""
+        title=""
+        href="https://www.ikea.com/kr/ko/p/sommarsloeja-duvet-cover-and-pillowcase-blue-floral-pattern-60529767/"
+        coords="572,510,20"
+        shape="circle"
+      />
+      <area
+        target="_blank"
+        alt=""
+        title=""
+        href="https://www.ikea.com/kr/ko/p/gradvis-plant-pot-in-outdoor-green-70523519/"
+        coords="457,783,21"
+        shape="circle"
+      />
+      <area
+        target="_blank"
+        alt=""
+        title=""
+        href="https://www.ikea.com/kr/ko/p/norraryd-chair-black-10362680/"
+        coords="338,873,18"
+        shape="circle"
+      />
+      <area
+        target="_blank"
+        alt=""
+        title=""
+        href="https://www.ikea.com/kr/ko/p/olderdalen-bedside-table-grey-green-pine-50509859/"
+        coords="159,961,18"
+        shape="circle"
+      />
+  </body>
+</html>

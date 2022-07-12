@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        * audio : 음악파일
+        * source
+            - controls : 오디오와 관련된 재생, 멈춤, 음성 등 조정을 위한 ui가 제공됨
+            - autoplay : 자동재생
+            - muted : 음소거
+            - loop : 빈복재생
+            - poster : 실행 전 보이는 썸네일 이미지
+            - preload 
+             - auto : 사용자가 재생하지 않더라도 자동으로 미리 다운로드 함 - 시청여부를 떠나 다운받아야 하는 파일, 의사와 관계없이 다운로드 되는거라 불쾌함을 줄 수 있음..
+             - metadate : 영상을 다운로드 하지 않고, 상영시간과 같은 메타 정보만 미리 가져옴
+             - none : 영상을 다운로드 하지않고, 사용자가 영상을 바로 보지 않을 확률이 매우 높은 것, 서버가 최소한의 트래픽을 유지하고 싶을 때
+     -->
+    <audio src="./medio/bootcamp.mp3" controls preload="auto"></audio>
+  </body>
+</html>

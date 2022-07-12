@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+        * 클래스 선택자 
+         - 선택자 이름이 .으로 시작함.
+    */
+      .color_red {
+        color: red;
+      }
+
+      .color_blue {
+        color: blue;
+      }
+
+      .color_yellow {
+        color: yellow;
+      }
+
+      .color_primaty {
+        color: blue;
+      }
+
+      /* 
+        class명을 지정할때 상황에 고려한 지정이 필요
+        - 사용한 스타일에 특성을 명시할 경우가 있을 경우
+        - 특성이 자주 변경되어 용도(?) 명칭을 명시할 필요가 있는 경우
+        - 클래스 안에 속성자를 담을때는 무한으로 담을 수 있음
+       */
+
+      .bg_yellow {
+        background: yellow;
+      }
+
+      /* 특정 이름을 이용해서 한번에 만들수도 있음 */
+      .box {
+        background-color: beige;
+        color: red;
+      }
+
+      /* 하나하나 쪼개면 여러개일 경우, 적용이 힘들어지기 때문에 상황에 따라 절충안을 찾아서 적어야 함  */
+    </style>
+  </head>
+  <body>
+    <p style="color: red">빨간색 글 입니다.</p>
+    <p class="color_red">클래스가 적용된 빨간색 글 입니다.</p>
+    <p class="color_blue">클래스가 적용된 파란색 글 입니다.</p>
+    <!-- class : 글로벌 전역 속성 -->
+    <p class="color_red">클래스가 적용된 빨간색 글 입니다.</p>
+    <p class="color_yellow">클래스가 적용된 노란색 글 입니다.</p>
+    <p class="color_primaty">대표색을 클래스로 지정한 글 입니다.</p>
+    <p class="bg_yellow">배경이 노란색입니다.</p>
+    <p class="box">배경이 파랑 글 빨간 입니다.</p>
+  </body>
+</html>
