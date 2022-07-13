@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+        * 복합선택자 : 여러선택자를 복합적으로 사용함
+         - 하위 선택자 : 지정한 태그 하위에  있는 특정태그를 모두 찾을 때
+        section ul {
+            border: 1px solid #000;
+        }
+      */
+
+      /* 자식선택자 : 지정한 태그 바로 하위에 있는 특정태그만 모두 찾을 때 
+        section > ul {
+            border: 1px solid #000;
+        }
+      */
+
+      /* 인접형제 선택자 : 특정 태그와 붙어있는 특정 태그를 찾을 때 */
+      p + ul {
+        background-color: blue;
+      }
+
+      /* 일반형제 선택자 : 특정태그와 동일한 선상에 있는 특정태그를 모두 찾을 때 */
+      p ~ ul {
+        background-color: black;
+      }
+      /* 적절히 활용하면 작업이 편함, js도 동일한 방법으로 지정 및 적용이 가능, 많이보고 익혀두자 */
+    </style>
+  </head>
+  <body>
+    <section>
+      <p>p 태그</p>
+      <ul>
+        <li>
+          li 태그
+          <ul>
+            <li>li 태그</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

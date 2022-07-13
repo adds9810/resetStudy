@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <!--
+      * css 색상 적용
+      1. 색상명에 해당하는 키워드 사용
+    -->
+    <p style="background-color: blue">파란색 배경</p>
+    <p style="color: orange">오렌지색 글씨</p>
+
+    <!-- 
+        2-1. 색상값 사용 - 실무에서 많이 사용
+         - r(red), g(green), b(blue) 각 0 ~ 255
+         - vscode에서는 원하는 색을 찾아볼 수 있다.
+    -->
+    <p style="color: rgb(255, 0, 0)">빨간색 글씨</p>
+    <p style="color: rgb(0, 255, 0)">초록색 글씨</p>
+    <p style="color: rgb(0, 0, 255)">파란색 글씨</p>
+    <p style="color: rgba(33, 73, 63, 0.158)">어떤색 글씨</p>
+
+    <!-- 
+        2-2. rgba(a - alpha : 투명도)
+    -->
+    <p style="color: rgba(255, 0, 0, 0.5)">빨간색 글씨</p>
+
+    <!-- 
+        3. hex 색상값 - 실무에서 많이 사용
+        - 16진수 표기법, 광원(빛의 3원색)인 red, green, blue 조합으로 표기
+        - 0(hex 00) / 255(hex ff)
+        - 앞에 #으로 시작
+    -->
+    <p style="color: #ff0000">빨간색 글씨</p>
+    <p style="color: #00ff00">초록색 글씨</p>
+    <p style="color: #0000ff">파란색 글씨</p>
+    <p style="color: #000000">검정색 글씨</p>
+    <p style="color: #cf47ad">어떤색 글씨</p>
+
+    <!--
+      4-1. hsl 색상값 - 실무에서 많이 사용하지 않음..
+       - 색조(hue), 채도(saturation), 밝기(lightness) 3가지 값으로 구성
+       - 색조 : 0~360, 360 빨강, 120 초록, 240 파랑
+       - 채도 : 0~100%, 0%은 회색음영
+       - 밝기 : 0~100%, 100% 가장 밝은 값
+    -->
+    <h1 style="color: hsl(360, 100%, 50%)">빨간색</h1>
+    <h1 style="color: hsl(120, 100%, 50%)">초록색</h1>
+    <h1 style="color: hsl(240, 100%, 50%)">파란색</h1>
+
+    <!-- 4-2. HSLA(A : Alpha) -->
+    <h1 style="background-color: hsla(9, 100%, 64%, 0.2)">어떤 배경색</h1>
+  </body>
+</html>

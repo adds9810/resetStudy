@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text-left {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+
+      .text-blue {
+        color: blue;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+      .overline {
+        text-decoration: overline;
+      }
+      .delline {
+        text-decoration: line-through;
+      }
+      .plain {
+        text-decoration: none;
+      }
+
+      /* 
+        * text-decoration 4가지 하위 속성이 존재
+         - text-decoration-style : 장식 스타일
+         - text-decoration-line : 장식 종류
+         - text-decoration-color : 장식 색상
+         - text-decoration-thickness : 장식 두께
+      */
+      .underover {
+        text-decoration: dashed underline overline red 4px;
+        /* 위처럼 합쳐서 사용하거나 아래처럼 따로 적어서 사용
+          text-decoration-style : dashed;
+          text-decoration-line : underline overline;
+          text-decoration-color : red;
+        */
+      }
+
+      .uppercase {
+        /* 소문자를 대문자 변환 */
+        text-transform: uppercase;
+      }
+      .lowercase {
+        /* 대문자를 소문자로 변환 */
+        text-transform: lowercase;
+      }
+      .capitalize {
+        /* 단어의 첫 글자만 대문자 */
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      * 기본적인 텍스트 관련 스타일링 
+       - 동업자들이 알기 쉽게 직관적인 css class명을 작성하는게 중요
+
+       텍스트 정렬 : text-align
+    -->
+    <h1 class="text-left">왼쪽 정렬</h1>
+    <h1 class="text-center">가운데 정렬</h1>
+    <h1 class="text-right">오른쪽 정렬</h1>
+
+    <!-- 텍스트 색상 : color -->
+    <h1 class="text-blue">파란색 글</h1>
+
+    <!-- 텍스트 장식성 : text-decoration -->
+    <h1 class="underline">밑줄</h1>
+    <h1 class="overline">윗줄</h1>
+    <h1 class="delline">취소선</h1>
+    <a href="" class="plain">a태그의 underline의 가본값을 지웁니다.</a>
+    <p classs="underover">밑줄 윗줄 혼용</p>
+
+    <!-- 텍스트 변환 : text-transform -->
+    <p class="uppercase">abcde</p>
+    <p class="lowercase">ABCDE</p>
+    <p class="capitalize">apple banana carote</p>
+    <!-- 
+      - 사용자의 편의를 위해 설정가능 : 시리얼 넘버 같은 대문자만 기재하는 입력란에 style적용
+      - 보이는 값만 스타일이 적용되는 것이지 때문에 js에서는 따로 메서드를 적용해야 함 : 대문자로 된 영문을 받아야 하는 경우, toUpperCase(); 메서드를 적용해야 함
+    -->
+    <input type="text" class="uppercase" />
+  </body>
+</html>

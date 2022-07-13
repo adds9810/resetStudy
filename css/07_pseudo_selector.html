@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+        * 가상 클래스 
+         - 사용자의 행동에 의해서 발생하는 상황을 예측해서 맞춘 클래스
+         - 사용자가 사이트 이용하는데 도움을 줄 수 있음
+      */
+      a {
+        text-decoration: none;
+      }
+
+      /* hover - 사용자가 커서를 a에 올리는 순간 */
+      a:hover {
+        color: wheat;
+        background-color: blue;
+      }
+
+      /* link - 한번도 방문한 적이(클릭한 적이) 없는 곳 */
+      a:link {
+        color: green;
+      }
+
+      /* visited - 방문한 적이 있음 */
+      a:visited {
+        color: red;
+      }
+
+      /* a태그의 가상 선택자는 button에 동일하게 적용가능 */
+      button:hover {
+        background-color: aqua;
+      }
+
+      /* input focus - 마우스 포커스를 받을 때 */
+      input:focus {
+        border: 1px solid aliceblue;
+      }
+
+      table,
+      tr,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      /*
+        :nth-child() : 태그안에 반복되는 태그가 있을 경우, 특정 순서 지정
+        2n / even : 짝수
+        2n+1 / odd : 홀수
+      */
+
+      tbody tr:nth-child(2n) {
+        background-color: gainsboro;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.naver.com/">네이버</a>
+    <a href="">구글</a>
+    <a href="">가짜사이트</a>
+    <button>조회</button>
+    <br />
+    <input type="text" />
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>연락처</th>
+          <th>이메일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>눈누</td>
+          <td>010-0000-0000</td>
+          <td>test1@abc.com</td>
+        </tr>
+        <tr>
+          <td>난나</td>
+          <td>010-0000-0001</td>
+          <td>test2@abc.com</td>
+        </tr>
+        <tr>
+          <td>뇸뇸</td>
+          <td>010-0000-0002</td>
+          <td>test2@abc.com</td>
+        </tr>
+        <tr>
+          <td>냠냠</td>
+          <td>010-0000-0003</td>
+          <td>test3@abc.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

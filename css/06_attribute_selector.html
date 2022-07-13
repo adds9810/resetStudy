@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+        * 속성 선택자 : 속성을 찾아서 스타일을 적용해줌(유인물에 속성적용 방식 참고)
+        */
+      input {
+        /* 태그 선택자 */
+        border: 1px solid red;
+      }
+      [name='email'] {
+        /* 속성선택자 */
+        border: 1px solid blue;
+      }
+      input[type='text'] {
+        /* 복합선택자 */
+        border: 1px solid green;
+      }
+      .box1 input[type='text'] {
+        /* 복합선택자 */
+        border: 1px solid yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <input type="text" />
+      <input type="email" name="email" id="email" />
+      <input type="tel" />
+    </div>
+    <input type="text" />
+    <input type="email" name="email" id="email" />
+    <input type="tel" />
+  </body>
+</html>
