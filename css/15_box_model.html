@@ -7,5 +7,25 @@
     <title>Document</title>
     <style></style>
   </head>
-  <body></body>
+  <body>
+    <!--
+      * padding
+       - 위, 왼쪽, 오른쪽, 아래를 각각 줄 수 있음
+         padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px;
+       - 혹은 한줄로 각각 줄 수 있음
+         padding: 10px 5px 8px 7px; top right bottom left
+       - 두값만 입력하면 첫번째 값은 top bottom, 두번째 값은 left, right에 적용됨
+         padding:5px 10px; 
+       - 세개의 값을 입력하면 첫번째 값은 top, 두번째 값은 left,right, 세번째 값은 bottom로 적용됨
+         padding: 5px 10px 8px; 
+       - border, margin도 동일한 방법으로 적용됨
+         - border-top, border-left, border-right, border-bottom
+         - margin-top, margin-left, margin-right, margin-bottom
+    -->
+    <div class="padding:10px; border:5px solid red; margin:510px;">
+      <div class="padding:5px; border:10px solid green; margin:5px;">
+        CSS 박스모델
+      </div>
+    </div>
+  </body>
 </html>
