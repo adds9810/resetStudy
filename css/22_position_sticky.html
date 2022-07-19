@@ -6,9 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .sticky {
+        position: sticky;
+        top: 0;
+        padding: 5px;
+        background-color: ghostwhite;
+        border: 2px solid green;
+      }
     </style>
   </head>
   <body>
-    
+    <!--
+      position: sticky; 
+      스크롤이 되기 전에는 원래 요소가 있어야 할 위치에 있다가 스크롤이 되면 지정된 위치에 고정
+    -->
+    <h2>
+      position:sticky;가 적용된 요소는 마우스 스크롤시 정의 된 위치에 고정해
+      줍니다.
+    </h2>
+    <div class="sticky">
+      <a href="">메뉴1</a>
+      <a href="">메뉴2</a>
+      <a href="">메뉴3</a>
+      <a href="">메뉴4</a>
+      <a href="">메뉴5</a>
+    </div>
+    <div style="height: 200vh"></div>
   </body>
 </html>

@@ -6,9 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .relative {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        border: 3px solid green;
+      }
+      .absolute {
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        width: 240px;
+        border: 3px solid rebeccapurple;
+      }
+      .general {
+        width: 350px;
+        border: 3px solid beige;
+      }
     </style>
   </head>
   <body>
-    
+    <!-- 
+      position: absolute; 
+      현재(position: absolute; 가 적용된) html 요소의 부모 요소 중에서 position:relative;가 실행된 가장 가까운 부모 요소에 대한 상대적인 위치..
+    -->
+    <h2>position:absolute;</h2>
+    <div class="relative">
+      position: relative;로 설정된 부모요소
+      <div class="general">
+        일반 position: static;로 설정된 부모요소
+        <div class="absolute">position:absolute로 설정된 요소;</div>
+      </div>
+    </div>
   </body>
 </html>
