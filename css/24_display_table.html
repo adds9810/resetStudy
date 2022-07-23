@@ -6,9 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .display_table {
+        display: table; /* 테이블 요소처럼 표현됨, 반응형 웹에는 적합하지 않음.. */
+      }
+      .display_tb_header {
+        display: table-header-group; /* table header 요소처럼 표현됨 */
+      }
+      .display_tb_body {
+        display: table-row-group; /* table body 요소처럼 표현됨 */
+      }
+      .display_tb_row {
+        display: table-row; /* table <tr>> 요소처럼 표현됨 */
+      }
+      .display_tb_cell {
+        display: table-cell; /* table <td>, <th>요소처럼 표현됨 */
+      }
     </style>
   </head>
   <body>
-    
+    <div class="display_table">
+      <div class="display_tb_header">
+        <div class="display_tb_cell">a</div>
+        <div class="display_tb_cell">b</div>
+        <div class="display_tb_cell">c</div>
+      </div>
+      <div class="display_tb_body">
+        <div class="table_tb_row">
+          <div class="display_tb_cell">a</div>
+          <div class="display_tb_cell">b</div>
+          <div class="display_tb_cell">c</div>
+        </div>
+        <div class="table_tb_row">
+          <div class="display_tb_cell">a</div>
+          <div class="display_tb_cell">b</div>
+          <div class="display_tb_cell">c</div>
+        </div>
+        <div class="table_tb_row">
+          <div class="display_tb_cell">a</div>
+          <div class="display_tb_cell">b</div>
+          <div class="display_tb_cell">c</div>
+        </div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

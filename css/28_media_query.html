@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        background-color: yellow;
+      }
+
+      /* 
+        * 미디어 쿼리
+         - max-, min- 접두사로 최대, 최소값을 설정가능
+         - 여러줄을 입력하면 마지막에 적힌 css가 적용됨
+         - 가로모드일 때만, 세로모드일 때만 css 적용가능
+       */
+      @media screen and (max-width: 600px) {
+        body {
+          background-color: red;
+        }
+      }
     </style>
   </head>
-  <body>
-    
-  </body>
+  <body></body>
 </html>
