@@ -1,12 +1,81 @@
 <!DOCTYPE html>
-<htmllang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Document</title>
-    </head>
-    <body>
-        <script></script>
-    </body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 조건문 - switch, 주로 if문을 많이 사용하지만 switch의 장점을 이해하고 잘 사용해아 한다.(속력의 차이가 있지만 근소한 차이라 크게 티나지 않음...)
+
+      // Date 객체 : 날짜와 시간과 관련된 객체
+      const d = new Date();
+      const day = d.getDay(); // 코드가 실행되는 시점의 요일. 요일 값을 숫자로 알려줌.
+      console.log(day);
+      // 0 - 일요일, 1 - 월요일, 2 - 화요일, 3 - 수요일, 4 - 목요일, 5 - 금요일, 6 - 토요일
+      /* if문으로 사용할 경우 */
+      let dayName = "";
+      if (day === 0) {
+        dayName = "일요일";
+      } else if (day === 1) {
+        dayName = "월요일";
+      } else if (day === 2) {
+        dayName = "화요일";
+      } else if (day === 3) {
+        dayName = "수요일";
+      } else if (day === 4) {
+        dayName = "목요일";
+      } else if (day === 5) {
+        dayName = "금요일";
+      } else if (day === 6) {
+        dayName = "토요일";
+      }
+
+      console.log(dayName);
+
+      // switch로 사용할 경우, 상수값 비교, 비교 연산자를 가질 수 없음.
+      switch (day) {
+        case 0:
+          dayName = "일요일";
+          break;
+        case 1:
+          dayName = "월요일";
+          break;
+        case 2:
+          dayName = "화요일";
+          break;
+        case 3:
+          dayName = "수요일";
+          break;
+        case 4:
+          dayName = "목요일";
+          break;
+        case 5:
+          dayName = "금요일";
+          break;
+        case 6:
+          dayName = "토요일";
+          break;
+        default:
+          break;
+      }
+
+      console.log(dayName);
+
+      // 조건문을 사용하지 않고도, 요일 출력이 가능함. 다양한 함수를 알면 때에따라 조건문이 아니더라도 출력할 수 있음
+      let dayNames = [
+        "일요일",
+        "월요일",
+        "화요일",
+        "수요일",
+        "목요일",
+        "금요일",
+        "토요일",
+      ];
+      // 0 - 일요일, 1 - 월요일, 2 - 화요일, 3 - 수요일, 4 - 목요일, 5 - 금요일, 6 - 토요일
+      console.log(dayNames[day]);
+    </script>
+  </body>
 </html>
