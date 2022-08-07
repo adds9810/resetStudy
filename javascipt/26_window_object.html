@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://naver.com" target="_blank">네이버</a>
+    <button onclick="openNaver();">네이버</button>
+    <script>
+      /* window 객체
+       - 글로벌 객체
+       - window.alert() == alert() : window를 생략해도 내장함수를 사용할 수 있음
+      */
+
+      //   alert("이것은 경고입니다."); 많이 사용하는 경고창. 디자인이 필요한 경우 오픈소스를 사용해서 만들기도 함..
+
+      function doDelete() {
+        const pass = prompt("비밀번호를 입력하셔야 삭제가 진행됩니다."); // prompt : 사용자에게 입력 받아야 할게 있을 때 사용
+        if (pass === "1234") {
+          if (confirm("정말 삭제 하시겠습니까?")) {
+            // confirm: 질문에 대한 네/아니오 선택을 받을 때 사용할 수 있음
+            console.log("삭제 되었습니다.");
+          }
+        } else {
+          alert("비밀번호가 틀립니다.");
+        }
+      }
+
+      //   doDelete();
+
+      function openNaver() {
+        window.open("https://naver.com"); // open 열고싶은 사이트 링크 열 수 있음
+      }
+
+      const myFunc = setTimeout(function () {
+        // setTimeout : 1회 지정시간 후에 실행
+        console.log("3초 후에 출력됩니다.");
+      }, 3000);
+
+      //   clearTimeout(myFunc) : setTimeout 실행 중지
+
+      const myFunc2 = setInterval(function () {
+        // setInterval : 반복적으로 지정시간 뒤에 실행
+        console.log("1초 마다 출력됩니다.");
+      }, 1000);
+
+      //   clearInterval(myFunc2) : setInterval 실행 중지
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<htmllang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="number" name="" id="" value="">
+        <input type="text" name="" id="">
+        <script>
+            /*
+                * Number 내장객체 함수,
+                 - Math가 사칙연산 등의 기능이 많아서 상대적으로 많이 사용
+            */
+           let num = 323;
+
+           // toString() : Number -> String로 변환시켜줌
+           let strNum = num.toString();
+
+           /* toExponential() : 사용 빈도가 낮음..
+              - 숫자를 지수표기법으로 변환, 문지열 변환
+              - 지수는 과학이나 공학에서 아주 큰 숫자를 표기하는 기법
+           */
+          let x = 10.656;
+          console.log(x.toExponential(2)); // 1.07e+1
+
+          /* toFixed() 
+            - 소수점 몇 자리까지 보여줄지 결정하는 함수
+            - 제시한 자리수와 맞지 않으면 반올림해서 자리수 맞춰줌, 가독성에 도움됨
+            - 사용 빈도 높은 편 
+          */
+         console.log(x.toFixed(0)); // 11
+         console.log(x.toFixed(1)); // 10.7
+         console.log(x.toFixed(2)); // 10.66
+         console.log(x.toFixed(4)); // 10.6560
+
+         // toPrecision() : 정수와 소수점 모두를 합쳐서 몇자리까지 보여줄지 결정, 사용빈도 많지 않음
+         console.log(x.toPrecision(2)); // 11
+         console.log(x.toPrecision(3)); // 10.7
+
+         /* parseInt() : 문자를 정수로 반환
+            - 사용자로부터 입력받은 숫자값을 연산을 해야하는 경우 주로 사용
+            - 사용자에게 받은 값은 숫자로 입력했어도 문자로 저장되기에 숫자로 바꿔주기 위해 사용함
+         */
+         console.log(parseInt("3")); // 숫자 3
+         console.log(parseInt("12.33")); // 숫자 12
+         console.log(parseInt("12.77")); // 숫자 12
+         console.log(parseInt("10 20 30")); // 숫자 10 : 중간에 띄어쓰기가 있다면 그 이후는 지워버림
+         console.log(parseInt("10 years")); // 숫자 10 : 숫자가 아닌 것은 제외하고 출력
+         console.log(parseInt("10살")); // 숫자 10 : 숫자가 아닌 것은 제외하고 출력
+
+         /* parseFloat() : 부동소수점으로 변환, 사용자에게 소수점 이하의 값을 받을때 사용함 */
+         console.log(parseFloat("12.33"));
+
+         console.log(Number.MAX_SAFE_INTEGER); // 안정적으로 받을있는 최대 정수값
+         console.log(Number.MIX_SAFE_INTEGER); // 안정적으로 받을있는 최소 음수값
+        </script>
+    </body>
+</html>
