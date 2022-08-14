@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- click: 클릭했을 때 -->
+    <button onclick="myFunction2(this);">클릭</button>
+    <!-- change : value가 변경될 때 발생 -->
+    <select name="" id="" onchange="myFunction2(this);">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+    <script>
+      // * this 키워드 : 사용되는 위치에 따라서 this에 바인딩되는 객체가 다름 크게 3가지로 사용됨
+      console.log(this); // Window : 1. script 소스 내에서 this
+
+      function myFunction() {
+        console.log(this); // Window : 함수 안에서의 this
+      }
+
+      myFunction();
+
+      // 2. this에 DOM(Document Object Model : 문서 객체 모델, html 요소) 요소가 바인딩 된 경우
+      // html 요소에서 이벤트를 호출했을 경우, 그 이벤트가 일어난 html 요소를 가리킨다.
+      function myFunction2(obj) {
+        console.log(obj); // <button onclick="myFunction2(this);">클릭</button> : 이벤트가 일어나는 객체 자체를 의미
+      }
+
+      // 3. this에 Object 객체가 바인딩 된 경우 : Object를 가리킴
+      let person = {
+        firstName: "John",
+        lastName: "Doe",
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      };
+
+      const fullName = person.getFullName();
+      console.log(fullName); // John Doe
+    </script>
+  </body>
+</html>

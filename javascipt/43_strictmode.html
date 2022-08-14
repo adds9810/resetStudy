@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // strict mode (엄격모드)
+      // 자바스크립트 문법을 엄격하게 체크하는 모드
+      // 초창기 기능들 중 불완전함에도 사용하던 기능들이 있었음
+      // 기능이 업그레이드 되고, 신규 문법이 추가되었으나
+      // 그 이전의 불완전했던 기능에 대한 수정은 없었음.
+      // ES5 부터 strict mode
+
+      //   "use strict"; 엄격모드 적용 선언
+      x = 3; // 불완전한 문법 : 변수선언을 하지 않았음에도 실행됨
+
+      function myFunction() {
+        "use strict";
+        y = 2;
+      }
+
+      myFunction();
+    </script>
+  </body>
+</html>

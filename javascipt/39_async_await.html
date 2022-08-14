@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getPostData();">조회</button>
+    <button onclick="getPostNCommentData();">조회2</button>
+    <button onclick="getData();">조회3</button>
+    <script>
+      /*
+        과거에는 동기 방식으로 응답이 올때까지 기다렸으나, 비동기 방식의 Promise와 fetch api가 도입되어 기다리지 않고 응답 받는대로 데이터를 얻을 수 있게됨
+        그러나 받는 순서 지정이 필요할 때가 있어 사용, 데이터의 연속성이 있는경우(앞의 데이터가 있고 다음데이터를 가져와야 할 경우)
+      */
+      function getPostData() {
+        fetch("http://localhost:3000/posts")
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+
+        console.log("ABC");
+      }
+
+      function getPostNCommentData() {
+        // 안으로 들여쓰기 되면서 가독성이 떨어짐
+        fetch("http://localhost:3000/posts")
+          .then((response) => response.json())
+          .then((json) => {
+            fetch("http://localhost:3000/comments")
+              .then((response2) => response2.json())
+              .then((json2) => {
+                console.log(json2);
+              });
+          });
+      }
+
+      // async / await : 실무에서 많이 사용, 비동기 통신이 끝날 때 기다릴게??, 비동통신이 끝날때까지 기다렸다가 끝나면 순차적으로 실행
+      async function getData() {
+        const response = await fetch("http://localhost:3000/posts");
+        const json = await response.json();
+
+        const response2 = await fetch("http://localhost:3000/comments");
+        const json2 = await response2.json();
+
+        console.log(json2);
+      }
+      /*
+       - fetch api : 위와 아래의 서버가 관계가 없을 때, 사용하기 좋음
+       - async / await : 앞의 서버통신과 관련이 있어 연속성을 갖으며 순차적인 실행이 필요할 때, 가독성에 도움을 줌
+      */
+    </script>
+  </body>
+</html>

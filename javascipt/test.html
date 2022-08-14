@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <script>
+      fetch("http://localhost:3000/todos", {
+        // 오브젝트 형태로 입력
+        method: "POST", // 데이터 종류 추가, 호출, 수정, 삭제 등...
+        body: JSON.stringify({ id: 4, content: "vue", completed: false }), // 데이터 전송방법
+        headers: { "content-type": "application/json;charset=UTF-8" }, // content-type, 이외 다양한 타입을 보낼 수 있음
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getData();">조회</button>
+    <button onclick="postData();">생성</button>
+    <button onclick="putData();">수정</button>
+    <button onclick="deleteData();">삭제</button>
+    <script>
+      // 서버와 통신을 위한 객체, 함수들
+      // 가상의 웹서버(json-server) : 테스트용 클라언트 서버와 데이터 통신하기 위해 사용
+      // 서버 개발자가 url전달해 주면 맞춰서 수정 대부분의 형식은 비슷함..
+
+      // HTTP 통신
+      // 클라이언트 서버로 요청(request)을 보내면, 서버가 요청에 대한 응답(response)하는 형식
+      // 응답이 오기 전까지는 다른 프로그램을 실행할 수 없었다.
+
+      // Ajax(Asynchronous JavaScript and XML): 비동기 통신(응답이 오지 않아서 다른 작업이 가능) : 페이지를 새로고침 하지 않아도 URL을 통해서 데이터를 전송하거나 받아올 수 있음.
+      // XMLHttpRequest 객체
+      function getPostData() {
+        const xhr = new XMLHttpRequest(); // XMLHttpRequest 객체를 생성
+
+        // HTTP Method : 통신 보낼때의 방법
+        // GET : 리소스 요청
+        // POST : 리소스 생성
+        // PUT : 리소스 수정
+        // DELETE : 리소스 삭제
+        // open() 2개의 파라미터,
+        //  - 첫번째 : HTTP Method
+        //  - 두번째 : url
+        xhr.open("GET", "http://localhost:3000/posts");
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send(); // 해당 서버로 요청됨
+
+        // 서버로 부터 응답을 받으면 실행
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            // 정상적인 응답
+            const res = JSON.parse(xhr.response); // 사용할 수 있는 오브제로 받음
+            console.log(res);
+            // callbackFunc(res);
+
+            // 여기에 post 데이터를 가져와서 처리해야 하는 로직을 구현해야 함
+            // return res;
+          } else {
+            // 오류가 났을 경우 서버로부터의 메세지
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      function renderPostData(res) {
+        console.log("renderPostData", res);
+      }
+
+      getPostData();
+
+      function getCommentData() {
+        const xhr = new XMLHttpRequest(); // XMLHttpRequest 객체를 생성
+
+        xhr.open("GET", "http://localhost:3000/comments");
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send();
+
+        // 서버로 부터 응답을 받으면 실행
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+            // 여기에 comment 데이터를 가져와서 처리해야 하는 로직을 구현해야 함
+            // return res; 비동기 통신으로 가져오는 데이터라 바로 가져오지 못함. 가져오는대로 보여질 수 있게 작업해야함
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      getCommentData();
+
+      // Promise
+      // 비동기 통신을 하는데 서버로 응답이 왔을 때 그걸 호출한 함수에서 알 수 있게 보장해줌
+
+      function getData(url) {
+        return new Promise((resolve, reject) => {
+          // resolve : 성공했을 때, reject : 실패했을 때
+          const xhr = new XMLHttpRequest(); // XMLHttpRequest 객체를 생성
+
+          xhr.open("GET", url);
+          xhr.setRequestHeader("content-type", "application/json");
+          xhr.send();
+
+          // 서버로 부터 응답을 받으면 실행
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              const res = JSON.parse(xhr.response);
+              resolve(res);
+            } else {
+              console.log(xhr.status, xhr.statusText);
+              reject(xhr.status);
+            }
+          };
+        });
+      }
+
+      getData("http://localhost:3000/posts").then((res) => {
+        // Promise로 정상적인 응답이 오면 then으로 받아서 실행
+        console.log(res);
+      });
+
+      getData("http://localhost:3000/comments").then((res) => {
+        console.log(res);
+      });
+      console.log("ABC");
+
+      // 데이터 생성
+      function postData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:3000/posts");
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8"); // 전송되는 데이터가 깨지지 않고 전달되게 함
+        const data = { title: "JavaScript", author: "Jeremy" };
+        xhr.send(JSON.stringify(data)); // JSON 데이터를 문자열로 변환해 전송해줌
+
+        xhr.onload = () => {
+          if (xhr.status === 201) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      // postData(); live-server로 실행하면 계속 새로고침되면서 추가되기 때문에 파일명 입력 혹은 이벤트 호출로 가져와야함
+
+      // 데이터 수정
+      function putData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("PUT", "http://localhost:3000/posts/2"); // url은 서버 개발자가 알려줌
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+        const data = { title: "HTML", author: "John Doe" };
+        xhr.send(JSON.stringify(data));
+
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      // 데이터 삭제
+      function deleteData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("DELETE", "http://localhost:3000/posts/2");
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+        xhr.send();
+
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

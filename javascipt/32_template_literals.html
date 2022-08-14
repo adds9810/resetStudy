@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // template literals(es6) : ` 과 ${}
+      // 문자열을 결합하는 방법 : es6이전 + 와 ""
+      function hello(firstName, lastName) {
+        console.log("Hello " + firstName + " " + lastName + ". Welcome!");
+      }
+
+      hello("John", "Doe"); // John Doe. Welcome!
+
+      // 문자열을 결합하는 방법 : es6이후 ` 과 ${}
+      function hello2(firstName, lastName) {
+        console.log(`Hello ${firstName} ${lastName}. Welcome!`);
+      }
+
+      hello2("Jeremy", "Go"); // John Go. Welcome!
+
+      // es6 이후에 ``과 ${}로 문자열 결합이 가능하다(템플릿 리터럴), 가독성에도 도움이 됨
+    </script>
+  </body>
+</html>

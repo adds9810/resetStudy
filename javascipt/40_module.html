@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      // module : 프레임워크에서 많이 사용하는 방식 중 하나..
+      // 예전에는 없었던 개념, 웹 애플리케이션의 크기가 점점 커지면서 관리하기가 어려워짐.
+      // 자바스크립트로 구현하는 함수를 기능별로 분리하고, 그 기능별로 별도의 자바스크립트 파일로 만들어서 효율적으로 관리 : 파일로 가져오면 불필요한 함수들까지 가져올 수 있어 기능별로 분리하고 필요한 것만 가져올 수 있게함
+      // 필요한 곳에서는 필요한 함수만 삽입해서 사용할 수 있음
+      // export 지시자 : 함수를 보냄
+      // import 지시자 : 함수를 가져와서 사용
+      import { log } from "./js/log.js";
+      log("모듈에 작성된 함수를 이용해서 콘솔에 출력합니다.");
+    </script>
+  </body>
+</html>

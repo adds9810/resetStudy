@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getPostData();">조회</button>
+    <button onclick="postData();">생성</button>
+    <button onclick="putData();">수정</button>
+    <button onclick="deleteData();">삭제</button>
+    <script>
+      /* Fetch API 
+        - Promise를 가지고 있음(XMLHttpRequest에서는 없어서 작성해서 사용했음)
+        - 서버개발자가 라우터 수정 방식에 따라 url 전달방식이 달라질 수 있음
+        - 서버 개발까지 구현이 어려울때 json-server설치 및 사용하면 테스트 하기 좋음
+      */
+
+      function getPostData() {
+        // fetch("http://localhost:3000/posts")
+        //   .then(function (response) { 내부에 Promise가 있어서 바로 then사용 가능
+        //     return response.json(); 바로 json 포맷으로 바꿔줌. XMLHttpRequest에서는 JSON.parse()로 오브제를 변환해 줬어야 함
+        //   })
+        //   .then(function (json) { 바로 json데이터로 호줄해 사용
+        //     console.log(json);
+        //   });
+
+        fetch("http://localhost:3000/posts")
+          .then((response) => response.json()) // 화살표 함수 사용, 코드가 간결해짐
+          .then((json) => console.log(json));
+      }
+
+      //   getPostData();
+
+      const headers = { "content-type": "application/json;charset=UTF-8" }; // 헤더 컨텐츠 타입 보통 한 가지로 사용해서 변수로 지정해 사용하면 편하다.
+
+      // 데이터 등록
+      function postData() {
+        const data = { title: "JavaScript", author: "Jeremy" };
+
+        fetch("http://localhost:3000/posts", {
+          // 오브젝트 형태로 입력
+          method: "POST", // 데이터 종류 추가, 호출, 수정, 삭제 등...
+          body: JSON.stringify(data), // 데이터 전송방법
+          headers: headers, // content-type, 이외 다양한 타입을 보낼 수 있음
+        })
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+      }
+
+      // 데이터 수정
+      function putData() {
+        const data = { title: "Fetch API", author: "Jeremy" };
+        fetch("http://localhost:3000/posts/2", {
+          method: "PUT",
+          body: JSON.stringify(data),
+          headers: headers,
+        })
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+      }
+
+      function deleteData() {
+        fetch("http://localhost:3000/posts/2", {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+      }
+    </script>
+  </body>
+</html>

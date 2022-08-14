@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 고객 정보를 가져오는 함수
+      function getPerson() {
+        return {
+          firstName: "John",
+          lastName: "Doe",
+          age: 37,
+          email: "john@gmail.com",
+          city: "NY",
+          country: "USA",
+        };
+      }
+
+      let person = getPerson();
+      console.log(person.firstName);
+      console.log(person.lastName);
+
+      // object_destructuring(구조분해할당)
+      // 오브젝트 안의 지정한 많은 키-값 중에 몇 개만 필요해 꺼내고자 할 때 변수로 선언하고 바로 가져올 수 있음
+      // 코드 작성의 효율성
+      let { firstName, lastName } = getPerson();
+      console.log(firstName);
+      console.log(lastName);
+    </script>
+  </body>
+</html>
