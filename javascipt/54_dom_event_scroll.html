@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body onscroll="checkScroll();">
+    <p>첫번째 줄</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <p>Paragraph</p>
+    <button
+      id="btnTop"
+      style="
+        position: fixed;
+        bottom: 10px;
+        right: 50px;
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
+        display: none;
+      "
+    >
+      ^
+    </button>
+    <script>
+      function myFunction() {
+        console.log("scroll 이벤트");
+      }
+
+      let showScrollBtn = false;
+
+      function checkScroll() {
+        if (window.scrollY > 850 && !showScrollBtn) {
+          showScrollBtn = true;
+          document.querySelector("#btnTop").style.display = "";
+          console.log(window.scrollY);
+        } else if (window.scrollY <= 850 && showScrollBtn) {
+          showScrollBtn = false;
+          document.querySelector("#btnTop").style.display = "none";
+          console.log(window.scrollY);
+        }
+      }
+
+      window.addEventListener("load", function () {
+        document
+          .querySelector("#btnTop")
+          .addEventListener("click", function () {
+            document.documentElement.scrollTop = 0;
+          });
+      });
+      /* css html { scroll-behavior: smooth; }와 js scrollTop을 이용하면 부드럽게 스크롤 할 수 있음 */
+    </script>
+  </body>
+</html>

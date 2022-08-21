@@ -51,6 +51,11 @@
                 checkUserId(userId);
             }
 
+            const changeLi = (num, liTxt, liColor) => {
+                document.querySelector("#rule > li:nth-child(" + num + ")").style.color = liColor;
+                document.querySelectorAll("#rule > li:nth-child(" + num + ")  > span")[0].innerHTML = liTxt;
+            }
+
             const checkUserId = (userId) => {
                 let msgTxt = "사용가능한 아이디입니다.";
                 let infoColor = passColor;
@@ -62,7 +67,7 @@
                         validator : userId.length < idInput.minLength || userId.length > idInput.maxLength,
                     },
                     {
-                        validator : !/[a-z0-9_?\.?]{1,15}/g.test(userId),
+                        validator : /[^a-z0-9_\.]+/.test(userId)
                     },
                     {
                         validator : /_{2}/.test(userId),
@@ -82,8 +87,7 @@
                 if(validatorList[0].validator){
                     idInput.focus();
                     for (let i = 1; i < validatorList.length; i++){
-                        document.querySelector("#rule > li:nth-child(" + i + ")").style.color = "black";
-                        document.querySelectorAll("#rule > li:nth-child(" + i + ")  > span")[0].innerHTML = "";
+                        changeLi(i, "", "black");
                     }
                     msgTxt = "아이디를 입력해 주세요";
                     infoColor = warningColor;
@@ -99,8 +103,7 @@
                             liColor = passColor;
                             trueLie = true;
                         }
-                        document.querySelectorAll("#rule > li:nth-child(" + i + ")  > span")[0].innerHTML = `(${trueLie})`;
-                        document.querySelector("#rule > li:nth-child(" + i + ")").style.color = liColor;
+                        changeLi(i, `(${trueLie})`, liColor);
                     }
                 }
 
