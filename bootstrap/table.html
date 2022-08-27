@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- 
+      3강(수업에서 다룬 것 위주)
+      * 타이포 :  https://getbootstrap.com/docs/5.2/content/reboot/
+      - heading : h1~h6태그를 사용해도 되고 .h1~.h6 class를 사용해도 됨
+      - display, text의 옵션들(underline, 이탤릭, 스몰 등..), 정렬(얼라이먼트)
+      - 이미지 : class img-fluid를 추가하면 반응형으로 알아서 잡아줌(반응형) / Image thumbnails(class를 추가하면 썸네일 이미지로 사이즈 잡아줌), 이미지 정렬
+      - table : heading, 정렬, 개발에서 많이 사용하는 것들 중 하나
+
+      4강
+      * forms : https://getbootstrap.com/docs/5.2/forms/overview/
+      - form-control 
+        - label .form-label, input .form-control 사용할 것 , color일 경우에는 form-control-color 추가
+        - sizing : .form-control는 일반사이즈 .form-control-사이즈 를 추가하면 거기에 맞게 사이즈 조절됨 
+        - disabled를 추가하면 형식이 약간 다르게됨
+      - select 
+        - .form-select 사용
+        - sizing : .form-select는 일반사이즈 .form-select-사이즈 를 추가하면 거기에 맞게 사이즈 조절됨 
+      - Checks & radios
+        - input에는 .form-check-input, label에는 form-check-label 사용
+        - Disabled 적용시 디자인 확인
+        - Switches : checkbox를 감싸는 태그에 .form-check.form-switch를 추가하면 스위치 모양이로 스타일을 바꿔줌
+        - inline : checkbox를 감싸는 태그에 .form-check.form-check-inline를 추가하면 한 줄에 checkbox들이 정렬됨
+        - Reverse : checkbox를 감싸는 태그에 .form-check.form-check-reverse를 추가하면 역순으로 정렬됨
+        - button으로 만들어서 색을 입힐 수도 있음
+      - Input group : 그룸으로 감싸는 div 태그에 .input-group를 추가하면 하나의 입력창처럼 표현해줌
+        - sizing : .input-group는 일반사이즈 .input-group-사이즈 를 추가하면 거기에 맞게 사이즈 조절됨 
+        - button 및 dropdown button(버튼을 누르면 드롭다운이 나옴), Segmented buttons(버튼과 드롬다운이 분리됨) 추가 가능
+      - Floating labels : input안에 label이 함께 있고 focus되면 label이 위로 올라가는 효과가 있음, 효율적인 공간사용 가능
+      - Layout(자주 사용하는건 외우고, 어떤게 있는지 이해하고 찾아서 사용하는 것이 좋음 )
+        - Form grid, Gutters(간격)
+        - Horizontal form : label은 왼쪽에 form은 오른쪽에 두게 할 수 있음, size조절가능
+      - Validation : 정규식 확인하고 구분해 알려주고 싶을때 사용할 수 있음
+        - 올바른 값을 입력했을 경우 .is-valid 추가(초록색으로 표시), 그렇지 않다면 .is-invalid 추가(빨간색으로 표시)
+    -->
+    <div class="container">
+      <table class="table table-bordered table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

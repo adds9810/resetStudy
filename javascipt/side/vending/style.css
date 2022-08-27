@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@font-face {
+  font-family: "DOSGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 12px;
+  box-sizing: border-box;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.drink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 8px;
+  color: #fff;
+  overflow: hidden;
+  background-color: gray;
+}
+.drink:before,
+.drink:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: gainsboro;
+}
+.drink:before {
+  top: 0;
+  left: 0;
+}
+.drink:after {
+  bottom: 0;
+  right: 0;
+}
+.msg {
+  position: relative;
+  background-color: #333333;
+  box-shadow: inset 0 0 10px #000000;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.msg .txt {
+  margin-top: 3px;
+}
+
+.vending {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 600px;
+  margin: 50px auto 0;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #0055a7;
+  box-shadow: 0 0 10px 1px rgb(0 0 0 / 30%);
+}
+#drinkList {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 70%;
+  background-color: #fff;
+  box-shadow: inset 0 0 10px #404040;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0px 20px 50px;
+}
+#drinkList li {
+  position: relative;
+  width: 25%;
+  padding-top: 30px;
+  /*box-shadow: 0 0 10px #404040;*/
+}
+#drinkList li::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #f5f4f4;
+  z-index: 1;
+}
+#drinkList li span,
+#drinkList li a {
+  position: relative;
+  z-index: 2;
+}
+
+#drinkList li .name,
+#drinkList li .pricebox {
+  display: block;
+  margin: 5px auto 0;
+  padding: 3px 0 5px;
+}
+#drinkList li .name {
+  position: relative;
+  border-top: 20px solid #034582;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+#drinkList li .name span {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 100%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
+#drinkList li .pricebox {
+  margin: -8px 10px 0;
+  background-color: gray;
+  color: #fff;
+}
+#drinkList li a {
+  display: block;
+  padding: 3px 0 5px;
+  margin: 10px auto 0;
+  width: 80px;
+  color: white;
+  border-radius: 40%;
+}
+
+.info {
+  width: 30%;
+  padding-left: 20px;
+}
+.msg .txt,
+.state li {
+  font-size: 14px;
+  font-family: "DOSGothic";
+  color: #e7263b;
+  line-height: 1.2;
+}
+.state .msg .txt {
+  height: 30px;
+}
+.state .msg.slide .txt {
+  transform: translateX(150%);
+  animation: slideTxt 3s linear 0.2s infinite;
+}
+@keyframes slideTxt {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.state ul {
+  margin-top: 10px;
+}
+.change {
+  margin-top: 5px;
+  display: block;
+  padding: 5px 0 5px;
+  background-color: yellow;
+  color: #333333;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.wallet {
+  margin-top: 30px;
+}
+.inset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.inset li {
+  margin: 0 4px;
+}
+.inset li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+.inset li:nth-child(1) a {
+  width: 35px;
+  height: 35px;
+  background: grey;
+  border-radius: 100%;
+}
+.inset li:nth-child(2) a {
+  width: 40px;
+  height: 40px;
+  background: grey;
+  border-radius: 100%;
+}
+.inset li:nth-child(3) a {
+  width: 49px;
+  height: 30px;
+  background: #947a9f;
+}
+
+.wallet .msg {
+  margin-top: 10px;
+}
+
+.output {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #333333;
+  box-shadow: inset 0 0 10px #000000;
+  border-radius: 5px;
+  height: 80px;
+  overflow: hidden;
+}
+.output .drink {
+  width: 80px;
+  height: 40px;
+  transform: translateY(-100%);
+}
+.output.down .drink {
+  animation: downDrink 0.5s linear 0.2s forwards;
+}
+
+@keyframes downDrink {
+  0% {
+    transform: translateY(-100%);
+  }
+  80% {
+    transform: translateY(70%);
+  }
+  100% {
+    transform: translateY(70%);
+  }
+}
+.output .drink::before,
+.output .drink::after {
+  width: 10px;
+  height: 100%;
+}

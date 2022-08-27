@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap" class="container">
+      <div class="row justify-content-center">
+        <div
+          class="vending col-xl-8 row mt-5 p-4 bg-primary text-white rounded-3"
+        >
+          <div class="col-xl-8">
+            <ul
+              id="drinkList"
+              class="row row-cols-4 p-3 pt-0 pb-5 mb-3 bg-white rounded-3 text-center justify-content-end"
+            ></ul>
+          </div>
+          <div class="info col-xl-4 ps-xl-4 mb-3">
+            <div class="state col">
+              <div class="msg bg-dark bg-gradient rounded-3">
+                <p class="txt text-danger"></p>
+                <ul>
+                  <li class="text-danger">투입 금액 : <span id="inputCoin"></span></li>
+                  <li class="text-danger">자판기잔액 : <span id="vendingchange"></span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="wallet col mt-5">
+              <ul class="inset">
+                <li><button onclick="inCoin(100);">100</button>
+                <li><button onclick="inCoin(500);">500</button>
+                <li><button onclick="inCoin(1000);">1000</button>
+              </ul>
+              <div class="msg col bg-dark bg-gradient rounded-3">
+                <p class="txt text-danger">내지갑 : <span id="myMoney"></span></p>
+              </div>
+            </div>
+            <div class="output col bg-dark bg-gradient rounded-3 mt-5">
+              <span class="drink"></span>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const dataUrl = "http://localhost:3000/drink";
+      const msgTxt = {
+        inCoin: "돈을 투입해주세요",
+        lackMoney: "돈이 부족합니다.",
+        selDrink: "음료를 선택해주세요",
+        noMoney: "지갑에 돈이 부족합니다",
+        noStock: "선택한 음료 재고가 없습니다.",
+        noChange: "음료자판기에 잔돈이 부족해서 선택한 음료를 구매할 수 없습니다.",
+        complete: "선택한 음료가 나왔습니다. 잔돈이 나옵니다.",
+      };
+      const msgWrap = document.querySelector(".state .msg .txt");
+      const txtRed = "text-danger";
+      const txtGreen = "text-success";
+      let msg = msgTxt.inCoin;
+      let myMoney = 10000,
+        vendingchange = 1000,
+        inputCoin = 0;
+
+      function init() {
+        roadData();
+        renderCoin(myMoney, vendingchange, inputCoin);
+        msgWrap.innerText = msgTxt.inCoin;
+      }
+      async function roadData() {
+        const res = await fetch(dataUrl);
+        const resData = await res.json();
+        renderList(resData);
+      }
+      function renderList(data) {
+        const col = 4;
+        let totalData = Math.floor(data.length / col);
+        if (totalData !== 0) {
+          for (let i = 0; i < totalData; i++) {
+            data.push({
+              id: data.length + 1,
+              name: "",
+              price: 0,
+              count: 0,
+              color: "",
+            });
+          }
+        }
+        const li = [];
+        for (item of data) {
+          li.push(`<li class="col mt-4 bg-light">`);
+          li.push(`<span style="background:${item.color};" class="drink"></span>`);
+          li.push(`<span class="name"><span>${item.name}</span></span>`);
+          li.push(
+            `<span class="pricebox"><span class="price">${item.price}</span>원</span>`
+          );
+          li.push(
+            `<button onclick="selDrink(${item.id});" class="btn pt-1 pb-2 mt-3 mb-2 rounded-5 text-white btn-secondary" disabled>재고 : <span class="count">${item.count}</span></button>`
+          );
+          li.push(`</li>`);
+        }
+        document.getElementById("drinkList").innerHTML = li.join("");
+      }
+      function renderCoin(myMoney, vendingchange, inputCoin) {
+        document.querySelector("#myMoney").innerText = myMoney;
+        document.querySelector("#vendingchange").innerText = vendingchange;
+        document.querySelector("#inputCoin").innerText = inputCoin;
+      }
+      function resetMsgTxt() {
+        setTimeout(function () {
+          msgWrap.innerText = msgTxt.inCoin;
+          msgWrap.classList.remove(txtRed);
+          msgWrap.classList.remove(txtGreen);
+          msgWrap.classList.add(txtRed);
+        }, 1200);
+      }
+      function inCoin(money) {
+        if (myMoney >= money) {
+          myMoney = myMoney - money;
+          vendingchange = vendingchange + money;
+          inputCoin = inputCoin + money;
+          renderCoin(myMoney, vendingchange, inputCoin);
+          openDrink(inputCoin);
+        } else {
+          msgWrap.innerText = msgTxt.noMoney;
+          resetMsgTxt();
+        }
+      }
+      function openDrink(inputCoin) {
+        const drinkList = document.querySelector("#drinkList");
+        let msg = msgTxt.inCoin;
+        let msgColor = txtRed;
+        for (let num = 1; num < drinkList.querySelectorAll("li").length + 1; num++) {
+          let li = drinkList.querySelector("li:nth-child(" + num + ")");
+          let price = li.querySelector(".price").textContent;
+          let count = li.querySelector("button .count").textContent;
+          if (inputCoin >= price) {
+            li.querySelector("button").classList.remove("btn-secondary");
+            li.querySelector("button").disabled = false;
+            if (count > 0) {
+              msg = msgTxt.selDrink;
+              msgColor = txtGreen;
+              li.querySelector("button").classList.add("btn-success");
+            } else {
+              li.querySelector("button").classList.add("btn-danger");
+            }
+          }
+        }
+
+        msgWrap.innerText = msg;
+        msgWrap.classList.remove(txtRed);
+        msgWrap.classList.remove(txtGreen);
+        msgWrap.classList.add(msgColor);
+      }
+      async function selDrink(id) {
+        let count = document.querySelector(
+          "#drinkList li:nth-child(" + id + ") button .count"
+        ).textContent;
+        let price = document.querySelector(
+          "#drinkList li:nth-child(" + id + ") .price"
+        ).textContent;
+        let color;
+        let msg;
+        let msgColor = txtRed;
+        let change = inputCoin - price;
+        if (count <= 0) {
+          msg = msgTxt.noStock;
+        } else if (count > 0 && change > vendingchange) {
+          msg = msgTxt.noChange;
+        } else if (count > 0 && change < vendingchange) {
+          coinBtnLack(true);
+          let name = document.querySelector(
+            "#drinkList li:nth-child(" + id + ") .name"
+          ).textContent;
+          count = count - 1;
+          color = document.querySelector("#drinkList li:nth-child(" + id + ") .drink")
+            .style.background;
+          let data = {
+            id: id,
+            name: name,
+            price: price,
+            count: count,
+            color: color,
+          };
+          const res = await fetch(`${dataUrl}/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+              "content-type": "application/json;charset=UTF-8",
+            },
+          });
+          if (res.ok) {
+            roadData();
+            let outputDrink = document.querySelector(".output .drink");
+            outputDrink.classList.add("down");
+            outputDrink.style.backgroundColor = color;
+            setTimeout(function () {
+              outputDrink.classList.remove("down");
+              coinBtnLack(false);
+            }, 1200);
+            inputCoin = change;
+            outChange();
+            msg = msgTxt.complete;
+            msgColor = txtGreen;
+            resetMsgTxt();
+          } else {
+            msg = "자판기에 문제가 발생했습니다.";
+          }
+        }
+
+        msgWrap.innerText = msg;
+        msgWrap.classList.remove(txtRed);
+        msgWrap.classList.remove(txtGreen);
+        msgWrap.classList.add(msgColor);
+      }
+
+      function coinBtnLack(lack) {
+        for (i = 1; i < document.querySelectorAll(".inset li").length + 1; i++) {
+          document.querySelector(".inset li:nth-child(" + i + ") button").disabled =
+            lack;
+        }
+      }
+      function outChange() {
+        let money = inputCoin;
+        myMoney = myMoney + money;
+        vendingchange = vendingchange - money;
+        inputCoin = inputCoin - money;
+        renderCoin(myMoney, vendingchange, inputCoin);
+      }
+
+      init();
+    </script>
+  </body>
+</html>

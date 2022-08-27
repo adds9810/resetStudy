@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+    <style>
+      .col {
+        background-color: aqua;
+        border: 2px solid black;
+      }
+
+      .row div {
+        border: 2px solid greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      1강
+      * 부트스트랩(https://getbootstrap.com/)
+      - 반응형에 따른 최적화된 레이아웃 제공, 위젯,컴포넌트가 생성되어 있어 개발자들이 가져다 쓰기 좋음, 디자인과 커스텀이 쉬운 프론트엔드 오픈소스 툴팁, 테마를 무료 혹은 저렴한 유료로 구매해 사용할 수 있음  
+      - examples 에서 확인가능(대시보드, 앨범 등...)
+      - 공식사이트 외 검색으로 여러 테마를 찾아볼 수 있음
+
+      2강
+      * 세팅
+      - doce에서 js, css파일 링크 받아 사용할 html 파일에 연결, 혹은 스타터 템플릿 복사 및 붙여넣기
+
+      * layout 메뉴의 기본 개념들
+      - 브레이크 포인트 : 화면 해상도 너비에 따른 비중?(캡쳐해둔거 있음), 이를 기반으로 미디어 쿼리가 만들어져 있음, 부트스트랩에 사용되는 class의 너비는 여기에 기반이 되어 사용되기에 중요함 https://getbootstrap.com/docs/5.2/layout/breakpoints/
+      - .container : 태그들을 담는 div 태그의 class, 부트스트랩 적용시 미디어 쿼리에 맞게 화면 너비가 달라짐 https://getbootstrap.com/docs/5.2/layout/containers/
+      - Grid : 컨텐츠 정렬 배치에 대한 방법을(.class) 소개해줌/12개의 열(컬럼)로 나눠져 있음, 내부의 col개수에 따라 100안에서 균등하게 너비 조절을 해줌, .col-n로 설정하면 비율이 조정됨, 실제로는 col-xxl-n, col-sm-n 등으로 구분, 배치, 정렬 등 필요할 때 찾아보고 이용하자 https://getbootstrap.com/docs/5.2/layout/grid/
+      - Gutters : 열과 열 사이 간격을 주고자 할때 사용할 수 있는 class는 크레 gy(위아래),gx(좌우)가 있음, class의 마지막 숫자가 커질수록 간격이 넓어짐, g만 입력하면 xy를 다 포함 https://getbootstrap.com/docs/5.2/layout/gutters/
+      - Utilities : https://getbootstrap.com/docs/5.2/layout/utilities/ display, margin padding, Flexbox, visibility 크게 4가지, https://getbootstrap.com/docs/5.2/utilities/ 에 자세한 사용법 설명이 있음
+      - Z-index : 보여주고 싶은 것에 따라 사용방법? https://getbootstrap.com/docs/5.2/layout/z-index/
+      - CSS Grid : 2차원 그리드, 실무에서 사용빈도가 낮음, 그리드보단 플렉스박스를 많이 사용. 참고만 하자 https://getbootstrap.com/docs/5.2/layout/css-grid/
+    -->
+    <div class="container">
+      <div class="row">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+      <div class="row">
+        <!--Grid 예제-->
+        <div class="col-md-6 col-lg-4 col-xl-3">A</div>
+        <div class="col-md-6 col-lg-4 col-xl-3">B</div>
+        <div class="col-md-12 col-lg-4 col-xl-3">C</div>
+        <div class="col-md-6 col-lg-4 col-xl-3">D</div>
+        <div class="col-md-6 col-lg-4 col-xl-3">E</div>
+        <div class="col-md-6 col-lg-4 col-xl-3">F</div>
+        <div class="col-md-6 col-lg-4 col-xl-3">G</div>
+        <div class="col-md-6 col-lg-4 col-xl-3">H</div>
+      </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "drink": [
+    {
+      "id": 1,
+      "name": "코카콜라",
+      "price": 700,
+      "count": 5,
+      "color": "red"
+    },
+    {
+      "id": 2,
+      "name": "오렌지 주스",
+      "price": 1200,
+      "count": 5,
+      "color": "orange"
+    },
+    {
+      "id": 3,
+      "name": "커피",
+      "price": "500",
+      "count": 5,
+      "color": "brown"
+    },
+    {
+      "id": 4,
+      "name": "물",
+      "price": "700",
+      "count": 5,
+      "color": "skyblue"
+    },
+    {
+      "id": 5,
+      "name": "옥수수 수염차",
+      "price": 1200,
+      "count": 5,
+      "color": "saddlebrown"
+    },
+    {
+      "id": 6,
+      "name": "밀키스",
+      "price": 700,
+      "count": 5,
+      "color": "lightskyblue"
+    },
+    {
+      "id": 7,
+      "name": "트래비",
+      "price": "1000",
+      "count": 5,
+      "color": "green"
+    }
+  ]
+}
