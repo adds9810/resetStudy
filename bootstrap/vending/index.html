@@ -59,6 +59,11 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      /* 피드백
+        1. 돔에 접근하는 것을 첫 시작을 한다면 load를 했을때 기능이 실행되도록 
+        2. 데이터와 관련된 기능은 html로 접근하지 말고 데이터에 젭근해서 비교하고 기능이 진행될 수 있도록 하자(해킹 가능성 있음)
+        3. 함수와 함수사이 가독성을 위해 한 칸씩 띄우기
+      */
       const dataUrl = "http://localhost:3000/drink";
       const msgTxt = {
         inCoin: "돈을 투입해주세요",
@@ -82,11 +87,13 @@
         renderCoin(myMoney, vendingchange, inputCoin);
         msgWrap.innerText = msgTxt.inCoin;
       }
+
       async function roadData() {
         const res = await fetch(dataUrl);
         const resData = await res.json();
         renderList(resData);
       }
+
       function renderList(data) {
         const col = 4;
         let totalData = Math.floor(data.length / col);
@@ -101,9 +108,11 @@
             });
           }
         }
+
         const li = [];
         for (item of data) {
-          li.push(`<li class="col mt-4 bg-light">`);
+          let dummyVal = (item.name ==="")? "dummy" : "";
+          li.push(`<li class="col mt-4 bg-light ${dummyVal}">`);
           li.push(`<span style="background:${item.color};" class="drink"></span>`);
           li.push(`<span class="name"><span>${item.name}</span></span>`);
           li.push(
@@ -116,11 +125,13 @@
         }
         document.getElementById("drinkList").innerHTML = li.join("");
       }
+
       function renderCoin(myMoney, vendingchange, inputCoin) {
         document.querySelector("#myMoney").innerText = myMoney;
         document.querySelector("#vendingchange").innerText = vendingchange;
         document.querySelector("#inputCoin").innerText = inputCoin;
       }
+
       function resetMsgTxt() {
         setTimeout(function () {
           msgWrap.innerText = msgTxt.inCoin;
@@ -129,6 +140,7 @@
           msgWrap.classList.add(txtRed);
         }, 1200);
       }
+      
       function inCoin(money) {
         if (myMoney >= money) {
           myMoney = myMoney - money;
@@ -141,24 +153,29 @@
           resetMsgTxt();
         }
       }
+
       function openDrink(inputCoin) {
         const drinkList = document.querySelector("#drinkList");
         let msg = msgTxt.inCoin;
         let msgColor = txtRed;
+        let bthBg;
         for (let num = 1; num < drinkList.querySelectorAll("li").length + 1; num++) {
           let li = drinkList.querySelector("li:nth-child(" + num + ")");
           let price = li.querySelector(".price").textContent;
           let count = li.querySelector("button .count").textContent;
           if (inputCoin >= price) {
             li.querySelector("button").classList.remove("btn-secondary");
-            li.querySelector("button").disabled = false;
+            if(!li.classList.contains("dummy")){
+              li.querySelector("button").disabled = false;
+            }
             if (count > 0) {
               msg = msgTxt.selDrink;
               msgColor = txtGreen;
-              li.querySelector("button").classList.add("btn-success");
+              bthBg = "btn-success"
             } else {
-              li.querySelector("button").classList.add("btn-danger");
+              bthBg = "btn-danger"
             }
+            li.querySelector("button").classList.add(bthBg);
           }
         }
 
@@ -167,6 +184,7 @@
         msgWrap.classList.remove(txtGreen);
         msgWrap.classList.add(msgColor);
       }
+
       async function selDrink(id) {
         let count = document.querySelector(
           "#drinkList li:nth-child(" + id + ") button .count"
@@ -235,6 +253,7 @@
             lack;
         }
       }
+
       function outChange() {
         let money = inputCoin;
         myMoney = myMoney + money;
