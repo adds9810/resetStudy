@@ -246,6 +246,14 @@ const routes = [
       )
   },
   {
+    path: '/vuex/login',
+    name: 'LoginView',
+    component: () =>
+      import(
+        /* webpackChunkName: "vuex", webpackPrefetch:true */ '../views/6_vuex/LoginView.vue'
+      )
+  },
+  {
     path: '/composition/setup',
     name: 'SetupView',
     component: () =>
@@ -307,158 +315,6 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/KakaoMapView.vue'
-      )
-  },
-  {
-    path: '/module/font',
-    name: 'FontawesomeView',
-    component: () =>
-      import(
-        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/FontawesomeView.vue'
-      )
-  },
-  {
-    path: '/module/calendar',
-    name: 'FullCalendarView',
-    component: () =>
-      import(
-        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/FullCalendarView.vue'
-      )
-  },
-  {
-    path: '/module/sweetalert2',
-    name: 'Sweetalert2View',
-    component: () =>
-      import(
-        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/Sweetalert2View.vue'
-      )
-  },
-  {
-    path: '/module/loading',
-    name: 'LoadingOverlayView',
-    component: () =>
-      import(
-        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/LoadingOverlayView.vue'
-      )
-  },
-  {
-    path: '/module/table',
-    name: 'VueGoodTableView',
-    component: () =>
-      import(
-        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/VueGoodTableView.vue'
-      )
-  },
-  {
-    path: '/chart/bar',
-    name: 'BarChartView',
-    component: () =>
-      import(
-        /* webpackChunkName: "chart", webpackPrefetch:true */ '../views/10_chart/BarChartView.vue'
-      )
-  },
-  {
-    path: '/chart/bar2',
-    name: 'BarChartView2',
-    component: () =>
-      import(
-        /* webpackChunkName: "chart", webpackPrefetch:true */ '../views/10_chart/BarChartView2.vue'
-      )
-  },
-  {
-    path: '/chart/line',
-    name: 'LineChartView',
-    component: () =>
-      import(
-        /* webpackChunkName: "chart", webpackPrefetch:true */ '../views/10_chart/LineChartView.vue'
-      )
-  },
-  {
-    path: '/chart/donut',
-    name: 'DonutChartView',
-    component: () =>
-      import(
-        /* webpackChunkName: "chart", webpackPrefetch:true */ '../views/10_chart/DonutChartView.vue'
-      )
-  },
-  {
-    path: '/chart/column',
-    name: 'ColumnChartView',
-    component: () =>
-      import(
-        /* webpackChunkName: "chart", webpackPrefetch:true */ '../views/10_chart/ColumnChartView.vue'
-      )
-  },
-  {
-    path: '/template/p1/single',
-    name: 'SingleViewEditView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p1/SingleViewEditView.vue'
-      )
-  },
-  {
-    path: '/template/p2/multiple',
-    name: 'MultipleEditView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p2/MultipleEditView.vue'
-      )
-  },
-  {
-    path: '/template/p3/list',
-    name: 'ListToDetailView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p3/ListToDetailView.vue'
-      )
-  },
-  {
-    path: '/template/p3/detail',
-    name: 'DetailView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p3/DetailView.vue'
-      )
-  },
-  {
-    path: '/template/p3/edit',
-    name: 'EditView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p3/EditView.vue'
-      )
-  },
-  {
-    path: '/template/p3/create',
-    name: 'CreateView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p3/CreateView.vue'
-      )
-  },
-  {
-    path: '/template/p4/master',
-    name: 'MasterDetailView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p4/MasterDetailView.vue'
-      )
-  },
-  {
-    path: '/template/p4/master2',
-    name: 'MasterDetailModalView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p4/MasterDetailModalView.vue'
-      )
-  },
-  {
-    path: '/template/p5/shuttle',
-    name: 'ShuttleView',
-    component: () =>
-      import(
-        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p5/ShuttleView.vue'
       )
   }
 ]

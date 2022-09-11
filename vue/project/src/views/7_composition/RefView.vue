@@ -10,19 +10,11 @@
     </div>
     <br />
     <div>
-      <input
-        type="text"
-        v-model.number="state.value.num1"
-        @keyup="plusNumber2"
-      />
+      <input type="text" v-model.number="state.num1" @keyup="plusNumber2" />
       <span>+</span>
-      <input
-        type="text"
-        v-model.number="state.value.num2"
-        @keyup="plusNumber2"
-      />
+      <input type="text" v-model.number="state.num2" @keyup="plusNumber2" />
       <span>=</span>
-      <span>{{ state.value.result }}</span>
+      <span>{{ state.result }}</span>
     </div>
   </div>
 </template>
@@ -53,7 +45,8 @@ export default {
     })
 
     function plusNumber2() {
-      state.value.result = state.value.num1 + state.value.num2
+      // state.value.result = state.value.num1 + state.value.num2
+      state.result = state.num1 + state.num2
     }
 
     return {
@@ -70,4 +63,15 @@ export default {
     }
   }
 }
+/* 19-2. 컴포지션 api : ref
+    - import { ref } from 'vue' 임포트
+    - reactive와 동일하게 작성
+        -> state.value.result = state.value.num1 + state.value.num2 였으나
+           버전업으로 state.result = state.num1 + state.num2로 작성
+    - reactive와 차이점
+        - reactive : 선언되는 값이 오브젝트나 배열일 경우 가능
+            -> const n = reactive(5); 숫자나 문자 선언시 작동하지 않음
+        - ref : 오브젝트나 배열뿐 아니라 숫자나 문자 선언도 반응형으로 사용 가능
+            - 함수 밖에서도 선언가능
+*/
 </script>

@@ -83,6 +83,7 @@ export default {
   mounted() {},
   unmounted() {},
   methods: {
+    // mutations을 이용할 때는 commit으로 불러오기
     addItem() {
       this.$store.commit('todo/add', { id: 4, title: this.todo, done: false })
     },
@@ -92,9 +93,27 @@ export default {
     doneYN(id, event) {
       this.$store.commit('todo/doneYN', { id: id, done: !event.target.checked })
     },
+    // actions을 이요할 때는 dispatch로 불러오기
     addItem2() {
       this.$store.dispatch('todo/add', { id: 4, title: this.todo, done: false })
     }
   }
 }
+/*
+  18-2. vuex
+  - 프로그램 세팅시 vuex를 선택하여 import store from './store'와 app.use(store)가 추가되었음
+  - store에 접근하고 싶을때는 $store사용($store.state, $store.getter...)
+  - computed 실시간으로 데이터 변동 감지
+  - 할일목록 예제, 목록 데이터 상태관리, 할일추가(mutations, actions 활용 방법), 삭제, 스위치로 완료여부
+
+  18-4. modules의 데이터에 접근할 때 namespaced 접근방식으로 수정 필요
+    - state : this.$store.state.todo.todos로 접근
+    - getters : this.$store.getters['todo/notDoneTodosCount']
+    - mutations : this.$store.commit('todo/doneYN', { id: id, done: !event.target.checked })
+    - actions : this.$store.dispatch('todo/add', { id: 4, title: this.todo, done: false })
+
+  18-5. 유저관리데이터 예제(실무에서 많이 사용하는 것 중 하나)
+  - user.js 파일 및 데이터 생성 및 store/inde.js에 연결
+  ** store는 모듈형태로 만들어 관리하는 것이 좋음, 협업할 때 여럿이 필요한 데이터 만들어서 연결하면 작업 충돌이 덜함
+*/
 </script>

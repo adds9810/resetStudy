@@ -49,6 +49,7 @@ export default {
   methods: {
     login() {
       this.$store.commit('user/setUserInfo', {
+        // 임의의 회원정보 전달, 전달하면 user안에 쿠키 설정한 대로 유자된다.
         name: 'John Doe',
         email: 'john@gmail.com',
         phone: '010-0000-0000',
