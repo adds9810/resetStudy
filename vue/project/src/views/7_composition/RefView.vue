@@ -45,8 +45,8 @@ export default {
     })
 
     function plusNumber2() {
-      // state.value.result = state.value.num1 + state.value.num2
-      state.result = state.num1 + state.num2
+      state.value.result = state.value.num1 + state.value.num2
+      // state.result = state.num1 + state.num2
     }
 
     return {

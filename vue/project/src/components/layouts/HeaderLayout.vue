@@ -92,6 +92,18 @@ export default {
     }
   }
 }
+/* 35-2. header에 p1 ~ p5 메뉴 추가하기
+  1. 메뉴명, 링크 걸기
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        :class="{ active: $route.path === '/template/p1/single' }"
+        @click="goToMenu('/template/p1/single')"
+        >SingleViewEdit</a
+      >
+    </li>
+  2. 메뉴의 링크가 현재 패스가 링크의 패스와 동일하면 class=on 되도록 바인딩 추가
+*/
 </script>
 <style>
 .navbar-toggler-icon {

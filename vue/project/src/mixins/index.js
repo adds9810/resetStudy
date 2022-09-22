@@ -1,4 +1,11 @@
 import axios from 'axios'
+import ExcelJS from 'exceljs'
+import { saveAs } from 'file-saver'
+
+/* 31-2 추가 부분 */
+axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*' // node.js를 고려한 설정, cors(https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)를 위한 설정, 서버와 클라이언트 주소가 다를 경우 cors위해 몇가지 설정이 필요함, 그 중 하나
 
 export default {
   methods: {
@@ -175,5 +182,32 @@ export default {
     })
 
     saveAs(new Blob([await wb.xlsx.writeBuffer()]), `${fileName}.xlsx`)
+  },
+  async $excelFromTable(
+    // 기본 변수 선업
+    header = [],
+    rows = [],
+    fileName = 'excel',
+    option = {}
+  ) {
+    /* eslint-disable */
+    header = header.filter((h) => h.title && h.key)
+
+    const wb = new ExcelJS.Workbook() // 워크북 약자, 워크북 생성
+    const ws = wb.addWorksheet() // 워크시크 추가
+    ws.addTable({
+      // 첫번째 워크시트에 테이블추가
+      name: 'myTable', // 워크시트 이름
+      ref: 'A1', // 테이블 시작점
+      headerRow: true, // 헤더 있는지?
+      columns: header.map((h) => ({
+        // 헤더이름 추가
+        name: h.title
+      })),
+      rows: rows.map((r) => header.map((h) => r[h.key])), // 데이터 개수만큼 받아서 열로 도출
+      ...option
+    })
+
+    saveAs(new Blob([await wb.xlsx.writeBuffer()]), `${fileName}.xlsx`) // 파일세이버 엑셀로 저장해줌 / writeBuffer 내장함수, 확장자명
   }
 }
