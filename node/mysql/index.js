@@ -3,12 +3,12 @@ const mysql = require("mysql");
 const sql = require("./sql"); // 쿼리문 가져오기 
 
 const pool = mysql.createPool({ // createPool로 접속정보 입력
-    host: process.env.MYSQL_HOST,
-    port: process.env.MYSQL_PORT,
-    user: process.env.MYSQL_USERNAME,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DB,
-    connectionLimit: process.env.MYSQL_LIMIT, // connectionLimit : connection 개수제한, 열고 닫는 함수 없이 10개 내에서 돌려쓰도록 설정, 처리시간이 빨라서 사용자는 느끼지 못하는 선에서 10개를 돌려서 사용
+  host: process.env.MYSQL_HOST,
+  port: process.env.MYSQL_PORT,
+  user: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DB,
+  connectionLimit: process.env.MYSQL_LIMIT, // connectionLimit : connection 개수제한, 열고 닫는 함수 없이 10개 내에서 돌려쓰도록 설정, 처리시간이 빨라서 사용자는 느끼지 못하는 선에서 10개를 돌려서 사용
 }); 
 
 // 비동기 방식으로 처리 alias : 쿼리문의 차라미터값 , values : 전달할 데이터
@@ -31,7 +31,7 @@ module.exports = { // 내보내기
 
   /* 5-5. 보안을 위함 dotenv 설치 및 실행
     * dotenv : 보완이 필요한 환경변수를 등록하고 노출하시 않도록 해줌
-     - 테미널에서 설치 npm install dotenv
+     - 터미널에서 설치 npm install dotenv
      - mysql/.env에 필요한 환경변수 추가, github에서는 해당 파일이 업로드 되지 않아 관련 정보가 노출되지 않음 보안강화, 해당 파일에 각자의 환경변수를 설정해 접속에 문제되지 않음
     
     * 5-7. 실무 팁 : mysql 폴더에 .env.test, .env.prod 생성 후 .env와 똑같은 내용 작성
